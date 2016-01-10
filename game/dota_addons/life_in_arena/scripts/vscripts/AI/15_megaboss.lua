@@ -8,7 +8,7 @@ function Spawn(entityKeyValues)
 	ABILITY_15_megaboss_illusions = thisEntity:FindAbilityByName("15_megaboss_illusions")
 	ABILITY_15_megaboss_astral = thisEntity:FindAbilityByName("15_megaboss_astral")
 	ABILITY_15_megaboss_silence = thisEntity:FindAbilityByName("15_megaboss_silence")
-	thisEntity:SetContextThink( "15_megaboss_think", Think15Wave , 2)
+	thisEntity:SetContextThink( "15_megaboss_think", Think15Wave , 1)
 end
 
 function Think15Wave()
@@ -26,10 +26,16 @@ function Think15Wave()
 	end
 
 	if thisEntity:IsStunned() then 
-		return 2 
+		return 0.5
 	end
 
+<<<<<<< HEAD
+	if ABILITY_15_megaboss_illusions:IsFullyCastable()  then --and thisEntity:GetHealthPercent() < 80
+		thisEntity:CastAbilityNoTarget(ABILITY_15_megaboss_illusions, -1)
+	elseif ABILITY_15_megaboss_silence:IsFullyCastable() then
+=======
 	if ABILITY_15_megaboss_silence:IsFullyCastable() then
+>>>>>>> refs/remotes/ZLOY5/master
 		local targets = FindUnitsInRadius(thisEntity:GetTeam(), 
 						  thisEntity:GetOrigin(), 
 						  nil, 
@@ -66,5 +72,5 @@ function Think15Wave()
 	
 	end
 	
-	return 2
+	return 1
 end
