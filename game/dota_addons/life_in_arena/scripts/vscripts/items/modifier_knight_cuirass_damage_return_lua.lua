@@ -3,7 +3,7 @@ modifier_knight_cuirass_damage_return_lua = class ({})
 --чтобы способность могла использовать этот модификатор в ней должен быть special value "damage_return"
 
 function modifier_knight_cuirass_damage_return_lua:GetAttributes()
-	return MODIFIER_ATTRIBUTE_MULTIPLE
+	return MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_PERMANENT 
 end
 
 function modifier_knight_cuirass_damage_return_lua:IsHidden()
